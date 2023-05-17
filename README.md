@@ -1,3 +1,33 @@
+
+**Data Structure Course Codes**
+
+This repository contains the codes of the **Data Structures CS-202** course at **National Institute of Technology , Hamirpur** during Even-Semester of 2023 . 
+The course covered a wide range of data structures, including linked lists, stacks, queues, trees, and graphs. 
+The codes in this repository are written in C++ and are accompanied by unit tests along with pdf of the Lab Report for in Latex for reference.
+
+I hope that this repository will be helpful to other students who are taking the **Data Structure** course or who are interested in learning more about data structures.
+
+**Data Structures**
+```sh
+The following **Data Structures and Algorithms** are covered in this repository:
+ - Arrays
+ - Linked Lists
+ - Stacks
+ - Queues
+ - Trees
+ - Graphs
+ - Searching Algorithms : Linear and Binary
+ - Sorting Algorithms :  Quick Sort, Merge Sort, Insertion Sort and Selection Sort
+ - Binary Search Trees
+ - Time Complexity Analysis
+ - Max Priority queue using Max Heap
+ ```
+
+
+**Contributing :**
+I welcome contributions to this repository. If you find any errors in the codes or if you have any suggestions for improvements, please feel free to open an issue or a pull request.
+
+**Questions :**
 ```sh
 0. Write a Program to create an array of n integers.
 
