@@ -1,0 +1,399 @@
+% You should not modify anything from here ... -------------
+\documentclass[a4paper]{article}
+\usepackage[english]{babel}
+\usepackage{microtype,etex,listings,color,parskip}
+\usepackage[margin=2cm]{geometry}
+\usepackage{graphicx} % for including images
+\usepackage{svg} % for including SVG images
+\usepackage{titlesec}
+\titleformat{\section}
+  {\normalfont\Large\bfseries}{\hspace{-0.25em}}{0em}{\vspace{3pt}}
+
+\titlespacing{\section}
+  {0pt}{3.5ex plus 1ex minus .2ex}{1ex plus .2ex}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    linkbordercolor=white % set link border color to white
+}
+\lstset{
+  language=C,
+  tabsize=2,
+  showstringspaces=false,
+  breaklines=true,
+  basicstyle=\ttfamily,
+  keywordstyle=\color[rgb]{0.1,0.3,0.7}\ttfamily,
+  stringstyle=\color[rgb]{0.7,0.1,0.3}\ttfamily,
+  commentstyle=\color[rgb]{0.3,0.4,0.3}\ttfamily,
+  columns=fixed,
+  numberstyle = \fnsymbol,
+  backgroundcolor=\color[rgb]{0.95,0.95,0.95},
+  frame=lines,
+  framexleftmargin=3pt,
+  numbers = left,
+}
+\documentclass{article}
+\usepackage{titling}
+\usepackage{listings}
+
+\posttitle{\par\end{flushleft}\vskip 0.3em}
+
+% ... until here -------------------------------------------
+
+\begin{document}
+
+
+\tableofcontents
+\clearpage
+\pagenumbering{arabic}
+
+% replace X and XXX with the number and title of the assignment:
+\section{\hspace{-0.03em}\textbf{Question 1}: Finding Complexity of Algorithms and Comparing their Time Complexity Graphs \\}
+% DO NOT ADD YOUR NAME, only your student numbers:
+% \author{Samadeep Sengupta}
+% \date{Algorithms and Data Structures 2020}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% NOTE: You MUST read and follow Appendix E of the lecture notes! %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Problem description}
+\large
+
+\fontsize{30}{Write a Program to create an array of n integers.
+
+Then reassign the values of average of the sum of the elements so
+far and replace the original value of the element
+
+\textbf{Solution 1:} Use two loops to calculate the value of the sum variable then assign each time.
+
+ \textbf{Solution 2:} Use a single loop to update the value of the sum variable
+
+Then plot the graph for both the operations to find the linear and exponential growth.
+\\
+
+Example : \\ \\
+\textbf
+{Input Array:            1  2   3   4    5 \\
+Output:                 1 3/2 6/3 10/4 15/5 i.e average of the elements so far.\\
+Expected Output:           1  1.5  2  2.5  3}\\
+
+}
+
+\subsection{Problem Analysis and Solution}
+
+\textbf{Approach 1:}
+\\
+Here we take a sum variable and set it to 0 at the beginning of every iteration and at the end sum up each time to get the the total sum of elements upto the specific index anad divide by n(number of elements)
+
+\textbf{Approach 2:}
+\\
+Here we implement a linear Solution and update sum variable at each iteration instead to reassigning it to 0 everytime.
+
+\subsection{Source Code: C++ : Approach 1}
+
+% Here you should include the program text.
+% Do NOT use screenshots or similar methods.
+% Below you can see how to use \lstinputlisting{}.
+
+\lstinputlisting{timecomplexity.cpp}
+
+\subsection{Source Code: C++ : Approach 2}
+
+\lstinputlisting{timecomplexity2.cpp}
+
+\clearpage % start a new page
+
+
+\subsection{Output Graph for Time Complexity:}
+\begin{figure}[ht]
+  \centering
+  \caption{Time Complexity: \textbf{Linear} For Approach 1}
+  \includesvg[width=0.8\textwidth]{output2.svg}
+  \label{fig:svg}
+  \vspace{8pt}
+  \centering
+    \caption{Time Complexity: \textbf{Quadratic} For Approach 2}
+  \includesvg[width=0.8\textwidth]{output1.svg}
+  \label{fig:svg}
+\end{figure}
+
+
+
+
+\clearpage
+
+
+\hspace{-2pt}
+\section{\hspace{-0.5em}\textbf{ Question 2}: Bubble Sort And Optimised Bubble Sort}
+
+\subsection{Problem description}
+\large
+Write a program to sort an array (make a dynamic array) using Bubble sort. Use 1-bit variable FLAG to signal when no interchange take place during pass. If FLAG is 0 after any pass, then list is already sorted and there is no need to continue.
+
+
+\subsection{Problem Analysis and Solution}
+
+We add on to the logic of bubble sort and then sort using the usual method but if in any pass we find that there is no swap that happened,we infer that the Array is \textbf{Already Sorted} and use a flag to denote it and then come out of the loop.\\
+
+\subsection{Source Code: C++ : Optimised Bubble Sort}
+
+
+\lstinputlisting{BubbleSort.cpp}
+
+\clearpage
+
+\hspace{-2pt}
+\section{\hspace{-0.5em}\textbf{ Question 3}: Binary Search and Insert or Delete the Searched Element}
+
+\subsection{Problem description}
+\large
+ Write a program to search an ITEM (integer) in an array using binary search, if FOUND then delete that item from array and if NOT FOUND than insert that item in kth position (Input “k” from user).
+ 
+\subsection{Problem Analysis and Solution}
+
+We sort the given array. Then we use a binary search on the array given to find out the element if it is present.
+\\ \\
+\textbf{If found} we delete it at the mid position returned by the Binary Search Function.
+\\ \\
+\textbf{If not found} , We insert it at the mid position returned to us by the Binary Search Function.
+\\
+
+
+\subsection{Source Code: C++ : Search and Insert or Delete in the given array.}
+\lstinputlisting{SearchAndInsert.cpp}
+
+\clearpage
+
+\hspace{-2pt}
+\section{\hspace{-0.5em}\textbf{ Question 4}: Search and Insert in Student Database (Usage of Struct and Linear Search)}
+
+\subsection{Problem description}
+\large
+Write a program to enter records of Five students, which should contain fields like roll No., name, CGPI, semester. (a) List all record of all students having CGPI greater than k. (b) Insert a new record of student at kth position and print the final record.
+
+\subsection{Source Code: C++ :Search and Insert in Student Database}
+\lstinputlisting{Student_database.cpp}
+
+\clearpage
+
+\hspace{-2pt}
+\section{\hspace{-0.5em}\textbf{ Question 5}: Operations on a Linked List}
+
+\subsection{Problem description}
+\large
+Implement a linked list and insert and delete an element into the list.
+
+\subsection{Source Code: C++ :Operations on a Linked List}
+\lstinputlisting{LinkedList_Insert_Delete.cpp}
+
+\clearpage
+
+\section{\hspace{-0.5em}\textbf{ Question 6}: PostFix Expression Evaluation using a Stack}
+\subsection{Problem description}
+\large
+Evaluate a postfix algebraic expression with the help of stack.
+
+
+\subsection{Problem Analysis and Solution}
+
+\item Create an empty stack.
+\item Scan the expression from left to right.
+\item For each symbol in the expression, do the following:
+If the symbol is a number, push it onto the stack.
+If the symbol is an operator, pop the two most recent operands from the stack, apply the operator to them, and push the result back onto the stack.
+After processing all the symbols in the expression, the value of the expression is the only item left on the stack.
+
+\\
+
+\subsection{Source Code: C++ : PostFix Expression Evaluation using a Stack}
+\lstinputlisting{PostFix.cpp}
+
+\clearpage
+\section{\hspace{-0.5em}\textbf{ Question 7}: Implementation of Queue}
+
+\subsection{Problem description}
+\large
+Implement a queue using arrays and linked list.
+
+\subsection{Source Code: C++ : Implementation of a Queue using a Array}
+\lstinputlisting{QueueARR.cpp}
+
+\subsection{Source Code: C++ : Implementation of a Queue using a Linked List}
+\lstinputlisting{QueueLL.cpp}
+
+\pagebreak
+
+\section{\hspace{-0.5em}\textbf{ Question 8}: Implement a binary tree and implement any traversal technique as you like.}
+
+\subsection{Problem Analysis and Solution}
+A Binary Tree is a hierarchical data structure in which each node has at most two children, referred to as the left child and the right child. The nodes in a Binary Tree are organized in a parent-child relationship, where the parent node is connected to its children by edges. The topmost node of the tree is called the root, and the nodes without any children are called leaf nodes.
+
+\subsection{Analysis of Post-Order Traversal Using a Single Stack}
+In PostOrder traversal using a single stack, we maintain a stack of nodes and keep track of the previously visited node. We first traverse the left subtree of a node and push all the nodes onto the stack until we reach a leaf node. At this point, we start to backtrack to the parent node of the leaf node.
+When we backtrack to a node from its left subtree, we check if the right subtree of that node has been visited or not. If it has not been visited, we traverse the right subtree and push all the nodes onto the stack until we reach a leaf node. If the right subtree has already been visited, we pop the node from the stack and process it.
+To implement PostOrder traversal using a single stack, we start by pushing the root node onto the stack. We initialize the previously visited node as null. We repeat the following steps until the stack becomes empty:
+\begin{enumerate}
+\item Peek the top element of the stack, and if it has a left child that has not been visited, push the left child onto the stack.
+\item If the top element of the stack has a right child that has not been visited, push the right child onto the stack.
+\item If the top element of the stack is a leaf node or has both its left and right subtrees visited, pop the top element from the stack and process it. In PostOrder traversal, processing a node means printing its value.
+\item Set the previously visited node to the node that was just processed.
+\end{enumerate}
+
+
+The time complexity of PostOrder traversal using a single stack is O(n), where n is the number of nodes in the tree, as we need to visit each node once. The space complexity of the algorithm is also O(n) in the worst case when the tree is completely unbalanced and has a chain of left or right children, as all the nodes are pushed onto the stack. However, in the average case, the space complexity is O(log n) because the maximum number of nodes on the stack at any point is the height of the tree.
+
+
+\subsection{Source Code: C++ }
+\lstinputlisting{TreeTraversals.cpp}
+
+
+
+\pagebreak
+
+
+\section{\hspace{-0.5em}\textbf{ Question 9}: Implement a binary Search Tree and insert and delete a node in the BST.}
+\subsection{Problem Analysis and Solution}
+This implementation uses a Node struct to represent each node in the tree, and a BST class to encapsulate the tree operations. The insert method is used to insert a new node into the tree, while the remove method is used to remove a node from the tree. The printInorder method is used to perform an inorder traversal of the tree and print its contents. The findMin method is used to find the minimum value node in the right subtree of a given node during the remove operation
+
+\subsection{Problem Analysis and Solution}
+\lstinputlisting{BST.cpp}
+
+\pagebreak
+
+
+
+
+\section{\hspace{-0.5em}\textbf{ Question 10}: Implement Max Priority queue using Max Heap.}
+\subsection{Problem Analysis and Solution}
+The MaxPriorityQueue class uses a vector<int> to implement a Max Heap. The insert method is used to insert an element into the Max Priority Queue. The getMax method is used to get the maximum element from the Max Priority Queue. The removeMax method is used to remove the maximum element from the Max Priority Queue. The isEmpty and size methods are used to check if the Max Priority Queue is empty and to get the size of the Max Priority Queue respectively.
+
+To maintain the Max Heap property, the maxHeapify helper function is used to recursively swap elements with their largest child until the Max Heap property is satisfied. When inserting an element into the Max Priority Queue, we use the insert method to insert the element into the next available position in the vector and then swap the element with its parent if necessary until the Max Heap property is satisfied. When removing the maximum element from the Max Priority Queue, we replace the maximum element with the last element in the vector and then use the maxHeapify method to restore the Max Heap property.
+
+\subsection{Source Code: C++ : Implementation of a Max Priority Queue}
+\lstinputlisting{MaxPriority.cpp}
+\pagebreak
+
+
+
+
+\section{\hspace{-0.5em}\textbf{ Question 11}: Implement a graph and find transpose of a graph where Transpose of a directed graph G is another directed graph on the same set of vertices with all of the edges reversed compared to the orientation of the corresponding edges in G. That is, if G contains an edge (u, v) then the converse/transpose/reverse of G contains an edge (v, u) and vice versa. Implement it with the help of adjacency list and adjacency matrix.}
+
+\subsection{Problem Analysis and Solution}
+We begin by defining a Graph class with a private member variable adj which is a pointer to an array of vectors. Each element in the array represents a vertex in the graph, and the corresponding vector contains the vertices adjacent to the vertex.
+
+The addEdge method is used to add an edge between two vertices in the graph. It takes two integer arguments u and v representing the vertices and adds an edge from vertex u to vertex v by appending v to the vector at index u in the adj array.
+
+The getTranspose method returns the transpose of the graph. To obtain the transpose, we first create a new graph object transposed with the same number of vertices as the original graph. We then traverse the original graph and for each edge (u, v) we add the edge (v, u) to the transposed graph. We do this by calling the addEdge method on transposed with arguments v and u.
+
+In the main function, we create a new Graph object g and add edges to it using the addEdge method. We then print the original adjacency list of the graph using a loop. Next, we obtain the transpose of the graph using the getTranspose method and print the transposed adjacency list of the graph using another loop. Finally, we perform a DFS traversal of the graph using the DFS method.
+
+
+\subsection{Source Code: C++ : Implementation of Graph using an Adjacency List}
+\lstinputlisting{Graph.cpp}
+\subsection{Source Code: C++ : Implementation of Graph using an Adjacency Matrix}
+\lstinputlisting{Graph2.cpp}
+
+
+
+\pagebreak
+
+
+
+
+
+
+
+\section{\hspace{-0.5em}\textbf{ Question 12}: Implement Quick Sort, Merge Sort, Insertion Sort and Selection Sort}
+
+
+\subsection{Complete Analysis of Sorting Algorithms}
+
+\subsubsection{Bubble Sort}
+Bubble Sort is a simple sorting algorithm that repeatedly swaps adjacent elements if they are in the wrong order. The algorithm works as follows:
+
+\begin{enumerate}
+\item Iterate through the array from the beginning to the end.
+\item Compare each pair of adjacent elements.
+\item If the elements are in the wrong order, swap them.
+\item Repeat steps 1-3 until no more swaps are needed.
+\end{enumerate}
+The time complexity of Bubble Sort is $O(n^2)$, where $n$ is the number of elements in the array. This is because, in the worst case, the algorithm needs to perform $n-1$ passes through the array, and in each pass, it needs to compare and possibly swap $n-i$ pairs of elements. The space complexity of Bubble Sort is $O(1)$, as it only needs to store a few temporary variables.
+
+\subsubsection{Insertion Sort}
+
+Insertion Sort is a simple sorting algorithm that builds the final sorted array one item at a time. The algorithm works as follows:
+
+\begin{enumerate}
+\item Iterate through the array from the second element to the end.
+\item For each element, compare it with the elements to its left.
+\item If the element is smaller than the element to its left, swap them.
+\item Repeat step 2-3 until the element is in its correct position.
+\item Repeat steps 1-4 for each element in the array.
+\end{enumerate}
+
+The time complexity of Insertion Sort is $O(n^2)$, where $n$ is the number of elements in the array. This is because, in the worst case, the algorithm needs to perform $n-1$ passes through the array, and in each pass, it needs to compare and possibly swap $i$ elements. However, Insertion Sort is efficient for small arrays or partially sorted arrays. The space complexity of Insertion Sort is $O(1)$, as it only needs to store a few temporary variables.
+
+
+\subsubsection{Selection Sort}
+Selection Sort is a simple sorting algorithm that repeatedly finds the minimum element from the unsorted part of the array and puts it at the beginning of the array. The algorithm works as follows:
+
+\begin{enumerate}
+\item Iterate through the array from the beginning to the end.
+\item Find the minimum element in the unsorted part of the array.
+\item Swap the minimum element with the first element of the unsorted part.
+\item Repeat steps 2-3 until the array is sorted.
+\end{enumerate}
+
+The time complexity of Selection Sort is $O(n^2)$, where $n$ is the number of elements in the array. This is because, in the worst case, the algorithm needs to perform $n-1$ passes through the array, and in each pass, it needs to find the minimum element from the unsorted part of the array, which requires $n-i$ comparisons. The space complexity of Selection Sort is $O(1)$, as it only needs to store a few temporary variables.
+
+
+
+\subsubsection{Merge Sort}
+Merge Sort is a divide-and-conquer sorting algorithm that recursively divides the input array into two halves, sorts each half, and then merges the sorted halves into a single sorted array. The algorithm works as follows:
+
+\begin{enumerate}
+\item Divide the input array into two halves.
+\item Recursively sort the left half of the array.
+\item Recursively sort the right half of the array.
+\item Merge the sorted left and right halves into a single sorted array.
+\end{enumerate}
+
+The time complexity of Merge Sort is $O(n\log n)$, where $n$ is the number of elements in the array. This is because the algorithm needs to perform $\log n$ levels of recursive divisions, and in each level, it needs to merge $n$ elements. The space complexity of Merge Sort is $O(n)$, as it needs to create temporary arrays to store the left and right halves of the input array during the merge process.
+
+Merge Sort is efficient for sorting large arrays or data sets, as its time complexity is better than Bubble Sort, Insertion Sort, and Selection Sort for large values of $n$. However, Merge Sort has a higher space complexity than these other algorithms, which can be a disadvantage in memory-constrained environments.
+
+
+
+\subsection{Source Code: C++ : Implementation of a Quick Sort}
+\lstinputlisting{QuickSort.cpp}
+
+\subsection{Source Code: C++ : Implementation of a Merge Sort}
+\lstinputlisting{MergeSort.cpp}
+
+\subsection{Source Code: C++ : Implementation of a Insertion Sort}
+\lstinputlisting{InsertionSort.cpp}
+
+\subsection{Source Code: C++ : Implementation of a Selection Sort}
+\lstinputlisting{SelectionSort.cpp}
+
+
+
+
+
+Made By Samadeep Sengupta : 21BEC005 on OverLeaf : 
+https://www.overleaf.com/project/63f06e32004ede0f1db5c920
+
+
+
+\pagebreak
+
+
+
+\end{document}
