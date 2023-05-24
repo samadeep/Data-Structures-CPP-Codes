@@ -1,5 +1,5 @@
 
-**Data Structure Course Codes**
+## **Data Structure Course Codes**
 
 This repository contains the codes of the **Data Structures CS-202** course at **National Institute of Technology , Hamirpur** during Even-Semester of 2023 . 
 The course covered a wide range of data structures, including linked lists, stacks, queues, trees, and graphs. 
